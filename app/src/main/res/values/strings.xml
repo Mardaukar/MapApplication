@@ -1,0 +1,26 @@
+<resources>
+    <string name="app_name">MapApplication</string>
+    <string name="title_activity_maps">Map</string>
+    <string name="latitude_text">Latitude:</string>
+    <string name="longitude_text">Longitude:</string>
+    <string name="empty_text">---</string>
+    <string name="currentHome_text">CURRENT HOME</string>
+    <string name="setNewHome_text">SET NEW HOME</string>
+    <string name="backToMap_text">BACK TO MAP</string>
+    <string name="myLocation_text">MY LOCATION</string>
+    <string name="home_text">HOME</string>
+    <string name="options_text">OPTIONS</string>
+    <string name="high">High</string>
+    <string name="med">Med</string>
+    <string name="low">Low</string>
+    <string name="zoom_level_text">MAP ZOOM LEVEL</string>
+    <string name="setHomeHere_text">SET HOME TO MY LOC</string>
+    <string name="newHomeCoordinates_text">NEW HOME COORDINATES</string>
+    <string name="setWeather_text">WEATHER</string>
+    <string name="on">On</string>
+    <string name="off">Off</string>
+    <string name="settings">SETTINGS</string>
+    <string name="my_location">MY LOCATION</string>
+    <string name="home">HOME</string>
+    <string name="zero">0</string>
+</resources>
