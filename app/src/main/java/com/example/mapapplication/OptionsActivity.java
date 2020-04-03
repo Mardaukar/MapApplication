@@ -12,9 +12,9 @@ import android.widget.Toast;
 
 public class OptionsActivity extends AppCompatActivity {
 
-    final int defaultZoomLevel = 4;
-    final double defaultLatitude = 60.2;
-    final double defaultLongitude = 24.9;
+    final int defaultZoomLevel = 5;
+    final double defaultLatitude = 60.20;
+    final double defaultLongitude = 24.90;
     final double noGPScheckValue = 1000; //This value is used if no GPS is detected
 
     private double home_lat = defaultLatitude;
@@ -52,10 +52,16 @@ public class OptionsActivity extends AppCompatActivity {
         setWeatherRadioButton();
 
         TextView currentLat_value = (TextView) findViewById(R.id.currentLat_value);
-        currentLat_value.setText(String.format("%.1f", home_lat));
+        currentLat_value.setText(String.format("%.2f", home_lat));
 
         TextView currentLon_value = (TextView) findViewById(R.id.currentLon_value);
-        currentLon_value.setText(String.format("%.1f", home_lon));
+        currentLon_value.setText(String.format("%.2f", home_lon));
+
+        TextView gpsLat_value = (TextView) findViewById(R.id.gpsLat_textView);
+        gpsLat_value.setText(String.format("%.2f", my_lat));
+
+        TextView gpsLon_value = (TextView) findViewById(R.id.gpsLon_textView);
+        gpsLon_value.setText(String.format("%.2f", my_lon));
     }
 
     @Override
@@ -76,10 +82,16 @@ public class OptionsActivity extends AppCompatActivity {
         setWeatherRadioButton();
 
         TextView currentLat_value = (TextView) findViewById(R.id.currentLat_value);
-        currentLat_value.setText(String.format("%.1f", home_lat));
+        currentLat_value.setText(String.format("%.2f", home_lat));
 
         TextView currentLon_value = (TextView) findViewById(R.id.currentLon_value);
-        currentLon_value.setText(String.format("%.1f", home_lon));
+        currentLon_value.setText(String.format("%.2f", home_lon));
+
+        TextView gpsLat_value = (TextView) findViewById(R.id.gpsLat_textView);
+        gpsLat_value.setText(String.format("%.2f", my_lat));
+
+        TextView gpsLon_value = (TextView) findViewById(R.id.gpsLon_textView);
+        gpsLon_value.setText(String.format("%.2f", my_lon));
     }
 
     @Override
@@ -128,8 +140,8 @@ public class OptionsActivity extends AppCompatActivity {
         }
 
         //Rounding to one decimal place
-        try_lat = Math.round(try_lat*10)/10.0;
-        try_lon = Math.round(try_lon*10)/10.0;
+        try_lat = Math.round(try_lat*100)/100.0;
+        try_lon = Math.round(try_lon*100)/100.0;
 
         //Check correct input
         if (try_lat > 80 || try_lat < -80) {
@@ -141,10 +153,10 @@ public class OptionsActivity extends AppCompatActivity {
             home_lon = try_lon;
 
             TextView currentLat_value = (TextView) findViewById(R.id.currentLat_value);
-            currentLat_value.setText(String.format("%.1f", home_lat));
+            currentLat_value.setText(String.format("%.2f", home_lat));
 
             TextView currentLon_value = (TextView) findViewById(R.id.currentLon_value);
-            currentLon_value.setText(String.format("%.1f", home_lon));
+            currentLon_value.setText(String.format("%.2f", home_lon));
         }
     }
 
@@ -157,11 +169,11 @@ public class OptionsActivity extends AppCompatActivity {
         switch(view.getId()) {
             case R.id.radio_high:
                 if (checked)
-                    zoomLevel = 5;
+                    zoomLevel = 7;
                     break;
             case R.id.radio_med:
                 if (checked)
-                    zoomLevel = 4;
+                    zoomLevel = 5;
                     break;
             case R.id.radio_low:
                 if (checked)
@@ -175,10 +187,10 @@ public class OptionsActivity extends AppCompatActivity {
         if (zoomLevel == 3) {
             RadioButton rb = (RadioButton)findViewById(R.id.radio_low);
             rb.setChecked(true);
-        } else if (zoomLevel == 4) {
+        } else if (zoomLevel == 5) {
             RadioButton rb = (RadioButton)findViewById(R.id.radio_med);
             rb.setChecked(true);
-        } else if (zoomLevel == 5) {
+        } else if (zoomLevel == 7) {
             RadioButton rb = (RadioButton)findViewById(R.id.radio_high);
             rb.setChecked(true);
         }
@@ -193,10 +205,10 @@ public class OptionsActivity extends AppCompatActivity {
             home_lon = my_lon;
 
             TextView currentLat_value = (TextView) findViewById(R.id.currentLat_value);
-            currentLat_value.setText(String.format("%.1f", home_lat));
+            currentLat_value.setText(String.format("%.2f", home_lat));
 
             TextView currentLon_value = (TextView) findViewById(R.id.currentLon_value);
-            currentLon_value.setText(String.format("%.1f", home_lon));
+            currentLon_value.setText(String.format("%.2f", home_lon));
         }
     }
 

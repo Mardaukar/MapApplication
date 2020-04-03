@@ -4,70 +4,104 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:weightSum="100"
     android:orientation="vertical"
-    tools:context=".MapsActivity">
-
-    <Button
-        android:id="@+id/location_button"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:onClick="click_my_location"
-        android:text="@string/my_location"
-        android:textSize="30sp" />
-
-    <Button
-        android:id="@+id/home_button"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:onClick="click_home"
-        android:text="@string/home"
-        android:textSize="30sp" />
-
-    <Button
-        android:id="@+id/options_button"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:onClick="open_options"
-        android:text="@string/settings"
-        android:textSize="30sp" />
-
-    <TextView
-        android:id="@+id/placeName_textView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/empty_text"
-        android:textSize="30sp" />
+    android:padding="10sp"
+    tools:context=".MapsActivity"
+    android:background="#D2F1EE">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:layout_weight="15">
+        <TextView
+            android:id="@+id/placeName_textView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/empty_text"
+            android:textSize="30sp" />
+    </LinearLayout>
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_weight="15"
+        android:weightSum="30">
         <TextView
             android:id="@+id/temperature_textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
+            android:layout_weight="5"
             android:text="@string/empty_text"
-            android:textSize="30sp" />
+            android:textSize="20sp" />
 
         <TextView
             android:id="@+id/weather_textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
+            android:layout_weight="25"
             android:text="@string/empty_text"
-            android:textSize="30sp" />
+            android:textSize="20sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="300sp"
+        android:layout_weight="40">
+
+        <fragment
+            android:id="@+id/map"
+            android:name="com.google.android.gms.maps.SupportMapFragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:context=".MapsActivity" />
 
     </LinearLayout>
 
-    <fragment xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:map="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
-        android:id="@+id/map"
-        android:name="com.google.android.gms.maps.SupportMapFragment"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:context=".MapsActivity" />
+        android:layout_height="100sp"
+        android:orientation="horizontal"
+        android:layout_weight="10"
+        android:weightSum="30">
 
+        <ImageButton
+            android:id="@+id/location_button"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="10"
+            android:background="@drawable/button_click"
+            android:onClick="click_my_location"
+            android:text="@string/my_location"
+            android:src="@drawable/my_location_icon"
+            android:scaleType="centerInside"
+            android:padding="5sp"
+            android:textSize="20sp" />
+
+        <ImageButton
+            android:id="@+id/home_button"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="10"
+            android:background="@drawable/button_click"
+            android:onClick="click_home"
+            android:text="@string/home"
+            android:src="@drawable/home_icon"
+            android:scaleType="centerInside"
+            android:padding="5sp"
+            android:textSize="20sp" />
+
+        <ImageButton
+            android:id="@+id/options_button"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="10"
+            android:background="@drawable/button_click"
+            android:onClick="open_options"
+            android:src="@drawable/settings_icon"
+            android:scaleType="centerInside"
+            android:padding="5sp"
+            android:textSize="20sp" />
+    </LinearLayout>
 </LinearLayout>

@@ -13,6 +13,7 @@ import android.location.LocationManager;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -38,9 +39,9 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     private Location lastKnownLocation;
     private GoogleMap mMap;
 
-    final int defaultZoomLevel = 4;
-    final double defaultLatitude = 60.2;
-    final double defaultLongitude = 24.9;
+    final int defaultZoomLevel = 5;
+    final double defaultLatitude = 60.18;
+    final double defaultLongitude = 24.95;
     final double noGPScheckValue = 1000;
 
     private double home_lat = defaultLatitude;
@@ -184,6 +185,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         mMap.addMarker(new MarkerOptions().position(position).title("Marker in position"));
         mMap.moveCamera(CameraUpdateFactory.newLatLng(position));
         mMap.moveCamera(CameraUpdateFactory.zoomTo(zoomLevel));
+        mMap.setMinZoomPreference(2);
+        mMap.setMaxZoomPreference(9);
     }
 
     public void click_my_location(View view) {
@@ -244,8 +247,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
         //Check lastKnownLocation is not null (otherwise crashes)
         if (lastKnownLocation != null) {
-            my_lat = Math.round(lastKnownLocation.getLatitude()*10)/10.0;
-            my_lon = Math.round(lastKnownLocation.getLongitude()*10)/10.0;
+            my_lat = Math.round(lastKnownLocation.getLatitude()*100)/100.0;
+            my_lon = Math.round(lastKnownLocation.getLongitude()*100)/100.0;
         }
 
         locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0,0, this);
@@ -254,8 +257,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     //Update location if changes
     @Override
     public void onLocationChanged(Location location) {
-        my_lat = Math.round(location.getLatitude()*10)/10.0;
-        my_lon = Math.round(location.getLongitude()*10)/10.0;
+        my_lat = Math.round(location.getLatitude()*100)/100.0;
+        my_lon = Math.round(location.getLongitude()*100)/100.0;
     }
 
     //Intent to options/settings activity
@@ -285,15 +288,23 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
     //Update which button is selected: home/my location
     public void updateSelected() {
-        Button home_button = (Button)findViewById(R.id.home_button);
-        Button location_button = (Button)findViewById(R.id.location_button);
+        ImageButton home_button = (ImageButton)findViewById(R.id.home_button);
+        ImageButton location_button = (ImageButton)findViewById(R.id.location_button);
 
         if(at_home) {
-            home_button.setTextColor(getColor(R.color.blue));
-            location_button.setTextColor(getColor(R.color.black));
+            //home_button.setTextColor(getColor(R.color.blue));
+            //location_button.setTextColor(getColor(R.color.black));
+            home_button.setImageResource(R.drawable.home_icon_blue);
+            location_button.setImageResource(R.drawable.my_location_icon);
+            home_button.setBackgroundResource(R.drawable.button_chosen);
+            location_button.setBackgroundResource(R.drawable.btn);
         } else {
-            home_button.setTextColor(getColor(R.color.black));
-            location_button.setTextColor(getColor(R.color.blue));
+            //home_button.setTextColor(getColor(R.color.black));
+            //location_button.setTextColor(getColor(R.color.blue));
+            home_button.setImageResource(R.drawable.home_icon);
+            location_button.setImageResource(R.drawable.my_location_icon_red);
+            home_button.setBackgroundResource(R.drawable.btn);
+            location_button.setBackgroundResource(R.drawable.button_chosen);
         }
     }
 

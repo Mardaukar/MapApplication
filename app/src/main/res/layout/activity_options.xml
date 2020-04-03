@@ -5,187 +5,324 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:paddingLeft="10sp"
+    android:paddingTop="10sp"
+    android:paddingRight="10sp"
+    android:paddingBottom="10sp"
     tools:context=".OptionsActivity">
 
-    <TextView
-        android:id="@+id/currentHome_textView"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/currentHome_text"
-        android:textSize="30sp" />
+        android:layout_weight="20"
+        android:orientation="vertical"
+        android:paddingBottom="30sp">
+
+        <TextView
+            android:id="@+id/currentHome_textView"
+            style="@style/TextStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="10sp"
+            android:text="@string/currentHome_text"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="50"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_weight="50"
+                    android:id="@+id/currentLat_textView"
+                    style="@style/TextStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/latitude_text" />
+
+                <TextView
+                    android:layout_weight="50"
+                    android:id="@+id/currentLat_value"
+                    style="@style/TextStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/empty_text" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="50"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_weight="50"
+                    android:id="@+id/currentLon_textView"
+                    style="@style/TextStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/longitude_text" />
+
+                <TextView
+                    android:layout_weight="50"
+                    android:id="@+id/currentLon_value"
+                    style="@style/TextStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/empty_text" />
+            </LinearLayout>
+        </LinearLayout>
+
+    </LinearLayout>
+
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:layout_weight="40"
+        android:orientation="vertical"
+        android:paddingBottom="25sp">
 
         <TextView
-            android:id="@+id/currentLat_textView"
-            android:layout_width="wrap_content"
+            android:id="@+id/setNewHome_textView"
+            style="@style/TextStyle"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="@string/latitude_text"
-            android:textSize="30sp" />
+            android:paddingBottom="10sp"
+            android:text="@string/setNewHome_text"
+            android:textStyle="bold" />
 
-        <TextView
-            android:id="@+id/currentLat_value"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="@string/empty_text"
-            android:textSize="30sp" />
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/coordinatesTitle_textView"
+                style="@style/TextStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/coord_title" />
+
+            <TextView
+                android:id="@+id/setLocationTitle_textView"
+                style="@style/TextStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/setLocationTitle" />
+        </LinearLayout>
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:stretchColumns="*">
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/newLat_textView"
+                    style="@style/TextStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/latitude_text" />
+
+                <EditText
+                    android:id="@+id/lat_editText"
+                    style="@style/TextStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="numberSigned|numberDecimal" />
+
+                <TextView
+                    android:id="@+id/textView4"
+                    style="@style/TextStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/latitude_text" />
+
+                <TextView
+                    android:id="@+id/gpsLat_textView"
+                    style="@style/TextStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/empty_text" />
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/newLon_textView"
+                    style="@style/TextStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/longitude_text" />
+
+                <EditText
+                    android:id="@+id/lon_editText"
+                    style="@style/TextStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="numberSigned|numberDecimal" />
+
+                <TextView
+                    android:id="@+id/textView6"
+                    style="@style/TextStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/longitude_text" />
+
+                <TextView
+                    android:id="@+id/gpsLon_textView"
+                    style="@style/TextStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/empty_text" />
+
+            </TableRow>
+
+        </TableLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/setNewHome_button"
+                    style="@style/TextStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/button_click"
+                    android:onClick="set_new_home"
+                    android:text="@string/set_text" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/setHomeHere_button"
+                    style="@style/TextStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/button_click"
+                    android:onClick="set_home_here"
+                    android:text="@string/set_text" />
+            </LinearLayout>
+        </LinearLayout>
+
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:layout_weight="30"
+        android:orientation="vertical"
+        android:paddingBottom="30sp">
 
         <TextView
-            android:id="@+id/currentLon_textView"
-            android:layout_width="wrap_content"
+            android:id="@+id/setZoom_textView"
+            style="@style/TextStyle"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="@string/longitude_text"
-            android:textSize="30sp" />
+            android:text="@string/zoom_level_text"
+            android:textStyle="bold" />
+
+        <RadioGroup
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/radio_high"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="onRadioButtonClicked"
+                android:text="@string/high" />
+
+            <RadioButton
+                android:id="@+id/radio_med"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="onRadioButtonClicked"
+                android:text="@string/med" />
+
+            <RadioButton
+                android:id="@+id/radio_low"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="onRadioButtonClicked"
+                android:text="@string/low" />
+        </RadioGroup>
 
         <TextView
-            android:id="@+id/currentLon_value"
-            android:layout_width="wrap_content"
+            android:id="@+id/setWeather_textView"
+            style="@style/TextStyle"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="@string/empty_text"
-            android:textSize="30sp" />
+            android:paddingTop="20sp"
+            android:text="@string/setWeather_text"
+            android:textStyle="bold" />
+
+        <RadioGroup
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/radio_on"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="onWeatherRadioButtonClicked"
+                android:text="@string/on" />
+
+            <RadioButton
+                android:id="@+id/radio_off"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="onWeatherRadioButtonClicked"
+                android:text="@string/off" />
+        </RadioGroup>
     </LinearLayout>
 
-    <TextView
-        android:id="@+id/setNewHome_textView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/newHomeCoordinates_text"
-        android:textSize="30sp" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_weight="10"
         android:orientation="horizontal">
 
-        <TextView
-            android:id="@+id/newLat_textView"
-            android:layout_width="wrap_content"
+        <Button
+            android:id="@+id/goBack_button"
+            style="@style/TextStyle"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="@string/latitude_text"
-            android:textSize="30sp" />
-
-        <EditText
-            android:id="@+id/lat_editText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:inputType="numberSigned|numberDecimal"
-            android:textSize="30sp" />
+            android:background="@drawable/button_click"
+            android:onClick="back_to_map"
+            android:text="@string/backToMap_text" />
     </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <TextView
-            android:id="@+id/newLon_textView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="@string/longitude_text"
-            android:textSize="30sp" />
-
-        <EditText
-            android:id="@+id/lon_editText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:inputType="numberSigned|numberDecimal"
-            android:textSize="30sp" />
-    </LinearLayout>
-
-    <Button
-        android:id="@+id/setNewHome_button"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:onClick="set_new_home"
-        android:text="@string/setNewHome_text"
-        android:textSize="30sp" />
-
-    <Button
-        android:id="@+id/setHomeHere_button"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:onClick="set_home_here"
-        android:text="@string/setHomeHere_text"
-        android:textSize="30sp" />
-
-    <TextView
-        android:id="@+id/setZoom_textView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/zoom_level_text"
-        android:textSize="30sp" />
-
-    <RadioGroup
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-        <RadioButton android:id="@+id/radio_high"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/high"
-            android:onClick="onRadioButtonClicked"/>
-        <RadioButton android:id="@+id/radio_med"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/med"
-            android:onClick="onRadioButtonClicked"/>
-        <RadioButton android:id="@+id/radio_low"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/low"
-            android:onClick="onRadioButtonClicked"/>
-    </RadioGroup>
-
-
-    <TextView
-        android:id="@+id/setWeather_textView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/setWeather_text"
-        android:textSize="30sp" />
-
-    <RadioGroup
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <RadioButton
-            android:id="@+id/radio_on"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/on"
-            android:onClick="onWeatherRadioButtonClicked" />
-
-        <RadioButton
-            android:id="@+id/radio_off"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/off"
-            android:onClick="onWeatherRadioButtonClicked" />
-    </RadioGroup>
-
-    <Button
-        android:id="@+id/goBack_button"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:onClick="back_to_map"
-        android:text="@string/backToMap_text"
-        android:textSize="30sp" />
 </LinearLayout>
