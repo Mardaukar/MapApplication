@@ -12,7 +12,6 @@ import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -32,7 +31,7 @@ import com.android.volley.toolbox.Volley;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-public class MapsActivity extends FragmentActivity implements OnMapReadyCallback, LocationListener {
+public class MapsActivity extends FragmentActivity implements GoogleMap.OnCameraIdleListener, GoogleMap.OnCameraMoveStartedListener, OnMapReadyCallback, LocationListener {
     RequestQueue queue;
 
     private LocationManager locationManager;
@@ -165,7 +164,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             TextView placeName_TextView = (TextView)findViewById(R.id.placeName_textView);
             placeName_TextView.setText(placeName);
             TextView temperature_TextView = (TextView)findViewById(R.id.temperature_textView);
-            temperature_TextView.setText("" + temperature + " C");
+            temperature_TextView.setText("" + temperature + " °C");
             TextView description_TextView = (TextView)findViewById(R.id.weather_textView);
             description_TextView.setText(weatherDescription);
 
@@ -178,6 +177,9 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
+        mMap.setOnCameraIdleListener(this);
+        mMap.setOnCameraMoveStartedListener(this);
+
         mMap.clear(); //Clears marker
 
         // Adds a marker in desired location and moves the camera
@@ -321,5 +323,31 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     @Override
     public void onProviderDisabled(String provider) {
 
+    }
+
+    @Override
+    public void onCameraIdle() {
+        LatLng position = mMap.getCameraPosition().target;
+        position_lat = position.latitude;
+        position_lon = position.longitude;
+        mMap.clear(); //Clears marker
+        mMap.addMarker(new MarkerOptions().position(position).title("Marker in position"));
+
+        getWeatherData();
+    }
+
+    @Override
+    public void onCameraMoveStarted(int reason) {
+        //If map is dragged by user, unselect home and location
+        if (reason == GoogleMap.OnCameraMoveStartedListener.REASON_GESTURE) {
+            ImageButton home_button = (ImageButton)findViewById(R.id.home_button);
+            ImageButton location_button = (ImageButton)findViewById(R.id.location_button);
+            location_button.setImageResource(R.drawable.my_location_icon);
+            location_button.setBackgroundResource(R.drawable.btn);
+            home_button.setImageResource(R.drawable.home_icon);
+            home_button.setBackgroundResource(R.drawable.btn);
+
+            at_home = true;
+        }
     }
 }
