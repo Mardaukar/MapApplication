@@ -58,10 +58,12 @@ public class OptionsActivity extends AppCompatActivity {
         currentLon_value.setText(String.format("%.2f", home_lon));
 
         TextView gpsLat_value = (TextView) findViewById(R.id.gpsLat_textView);
-        gpsLat_value.setText(String.format("%.2f", my_lat));
-
         TextView gpsLon_value = (TextView) findViewById(R.id.gpsLon_textView);
-        gpsLon_value.setText(String.format("%.2f", my_lon));
+
+        if (my_lat != 1000 && my_lon != 1000) {
+            gpsLat_value.setText(String.format("%.2f", my_lat));
+            gpsLon_value.setText(String.format("%.2f", my_lon));
+        }
     }
 
     @Override

@@ -14,22 +14,22 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="20"
+        android:weightSum="20"
         android:orientation="vertical"
-        android:paddingBottom="30sp">
+        android:paddingBottom="15sp">
 
         <TextView
             android:id="@+id/currentHome_textView"
-            style="@style/TextStyle"
+            style="@style/titleTextStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingBottom="10sp"
-            android:text="@string/currentHome_text"
-            android:textStyle="bold" />
+            android:text="@string/currentHome_text"/>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:weightSum="100"
             android:orientation="horizontal">
 
             <LinearLayout
@@ -39,18 +39,18 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:layout_weight="50"
+                    android:layout_weight="20"
                     android:id="@+id/currentLat_textView"
                     style="@style/TextStyle"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/latitude_text" />
 
                 <TextView
-                    android:layout_weight="50"
+                    android:layout_weight="30"
                     android:id="@+id/currentLat_value"
                     style="@style/TextStyle"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/empty_text" />
             </LinearLayout>
@@ -62,197 +62,246 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:layout_weight="50"
+                    android:layout_weight="20"
                     android:id="@+id/currentLon_textView"
                     style="@style/TextStyle"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/longitude_text" />
 
                 <TextView
-                    android:layout_weight="50"
+                    android:layout_weight="30"
                     android:id="@+id/currentLon_value"
                     style="@style/TextStyle"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/empty_text" />
             </LinearLayout>
         </LinearLayout>
-
     </LinearLayout>
-
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="40"
+        android:layout_weight="45"
+        android:weightSum="100"
         android:orientation="vertical"
-        android:paddingBottom="25sp">
+        android:paddingBottom="15sp">
 
         <TextView
             android:id="@+id/setNewHome_textView"
-            style="@style/TextStyle"
+            style="@style/titleTextStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_weight="15"
             android:paddingBottom="10sp"
-            android:text="@string/setNewHome_text"
-            android:textStyle="bold" />
+            android:text="@string/setNewHome_text"/>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_weight="60"
+            android:weightSum="100"
             android:orientation="horizontal">
 
-            <TextView
-                android:id="@+id/coordinatesTitle_textView"
-                style="@style/TextStyle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/coord_title" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:weightSum="90"
+                android:layout_weight="50"
+                android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/setLocationTitle_textView"
-                style="@style/TextStyle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/setLocationTitle" />
+                <TextView
+                    android:id="@+id/coordinatesTitle_textView"
+                    style="@style/TextStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="30"
+                    android:text="@string/coord_title" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="30"
+                    android:weightSum="100"
+                    android:paddingRight="5sp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/newLat_textView"
+                        style="@style/TextStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="40"
+                        android:text="@string/latitude_text" />
+
+                    <EditText
+                        android:id="@+id/lat_editText"
+                        style="@style/TextStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="60"
+                        android:inputType="numberSigned|numberDecimal" />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="30"
+                    android:weightSum="100"
+                    android:paddingRight="5sp"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:id="@+id/newLon_textView"
+                        style="@style/TextStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="40"
+                        android:text="@string/longitude_text" />
+
+                    <EditText
+                        android:id="@+id/lon_editText"
+                        style="@style/TextStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="60"
+                        android:inputType="numberSigned|numberDecimal" />
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:weightSum="90"
+                android:layout_weight="50"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/setLocationTitle_textView"
+                    style="@style/TextStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="30"
+                    android:text="@string/setLocationTitle" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="30"
+                    android:weightSum="100"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:id="@+id/textView4"
+                        style="@style/TextStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="40"
+                        android:text="@string/latitude_text" />
+
+                    <TextView
+                        android:id="@+id/gpsLat_textView"
+                        style="@style/TextStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="60"
+                        android:text="@string/empty_text" />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="30"
+                    android:weightSum="100"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:id="@+id/textView6"
+                        style="@style/TextStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="40"
+                        android:text="@string/longitude_text" />
+
+                    <TextView
+                        android:id="@+id/gpsLon_textView"
+                        style="@style/TextStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="60"
+                        android:text="@string/empty_text" />
+                </LinearLayout>
+            </LinearLayout>
         </LinearLayout>
-
-        <TableLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:stretchColumns="*">
-
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
-                <TextView
-                    android:id="@+id/newLat_textView"
-                    style="@style/TextStyle"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/latitude_text" />
-
-                <EditText
-                    android:id="@+id/lat_editText"
-                    style="@style/TextStyle"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:inputType="numberSigned|numberDecimal" />
-
-                <TextView
-                    android:id="@+id/textView4"
-                    style="@style/TextStyle"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/latitude_text" />
-
-                <TextView
-                    android:id="@+id/gpsLat_textView"
-                    style="@style/TextStyle"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/empty_text" />
-
-            </TableRow>
-
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
-                <TextView
-                    android:id="@+id/newLon_textView"
-                    style="@style/TextStyle"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/longitude_text" />
-
-                <EditText
-                    android:id="@+id/lon_editText"
-                    style="@style/TextStyle"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:inputType="numberSigned|numberDecimal" />
-
-                <TextView
-                    android:id="@+id/textView6"
-                    style="@style/TextStyle"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/longitude_text" />
-
-                <TextView
-                    android:id="@+id/gpsLon_textView"
-                    style="@style/TextStyle"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/empty_text" />
-
-            </TableRow>
-
-        </TableLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:weightSum="100"
+            android:layout_weight="25"
+            android:orientation="horizontal">
+            <Button
+                android:id="@+id/setNewHome_button"
+                style="@style/TextStyle"
+                android:layout_width="match_parent"
+                android:layout_height="35sp"
+                android:layout_weight="50"
+                android:background="@drawable/button_click"
+                android:onClick="set_new_home"
+                android:text="@string/set_text" />
+            <Button
+                android:id="@+id/setHomeHere_button"
+                style="@style/TextStyle"
+                android:layout_width="match_parent"
+                android:layout_height="35sp"
+                android:layout_weight="50"
+                android:background="@drawable/button_click"
+                android:onClick="set_home_here"
+                android:text="@string/set_text" />
+        </LinearLayout>
+
+
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
             android:orientation="horizontal">
 
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:orientation="horizontal">
 
-                <Button
-                    android:id="@+id/setNewHome_button"
-                    style="@style/TextStyle"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/button_click"
-                    android:onClick="set_new_home"
-                    android:text="@string/set_text" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:orientation="horizontal">
-
-                <Button
-                    android:id="@+id/setHomeHere_button"
-                    style="@style/TextStyle"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/button_click"
-                    android:onClick="set_home_here"
-                    android:text="@string/set_text" />
-            </LinearLayout>
         </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+
+        </LinearLayout>
+
 
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="30"
+        android:layout_weight="20"
+        android:weightSum="100"
         android:orientation="vertical"
-        android:paddingBottom="30sp">
+        android:paddingBottom="10sp">
 
         <TextView
             android:id="@+id/setZoom_textView"
-            style="@style/TextStyle"
+            style="@style/titleTextStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/zoom_level_text"
-            android:textStyle="bold" />
+            android:layout_weight="25"
+            android:text="@string/zoom_level_text" />
 
         <RadioGroup
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_weight="25"
             android:orientation="horizontal">
 
             <RadioButton
@@ -279,17 +328,17 @@
 
         <TextView
             android:id="@+id/setWeather_textView"
-            style="@style/TextStyle"
+            style="@style/titleTextStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingTop="20sp"
-            android:text="@string/setWeather_text"
-            android:textStyle="bold" />
+            android:layout_weight="25"
+            android:paddingTop="10sp"
+            android:text="@string/setWeather_text" />
 
         <RadioGroup
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-
+            android:layout_weight="25"
             android:orientation="horizontal">
 
             <RadioButton
@@ -307,22 +356,13 @@
                 android:text="@string/off" />
         </RadioGroup>
     </LinearLayout>
-
-
-    <LinearLayout
+    <Button
+        android:id="@+id/goBack_button"
+        style="@style/TextStyle"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="35sp"
         android:layout_weight="10"
-        android:orientation="horizontal">
-
-        <Button
-            android:id="@+id/goBack_button"
-            style="@style/TextStyle"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/button_click"
-            android:onClick="back_to_map"
-            android:text="@string/backToMap_text" />
-    </LinearLayout>
-
+        android:background="@drawable/button_click"
+        android:onClick="back_to_map"
+        android:text="@string/backToMap_text" />
 </LinearLayout>

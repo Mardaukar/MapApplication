@@ -49,7 +49,10 @@ public class MapsActivity extends FragmentActivity implements GoogleMap.OnCamera
     private double my_lon = noGPScheckValue;
     private double position_lat;
     private double position_lon;
+
     private int zoomLevel = defaultZoomLevel;
+    private float dragZoomLevel = defaultZoomLevel;
+
     private boolean at_home = true;
     private boolean weather_on = true;
 
@@ -76,6 +79,7 @@ public class MapsActivity extends FragmentActivity implements GoogleMap.OnCamera
         my_lat = getIntent().getDoubleExtra("my_lat", noGPScheckValue);
         my_lon = getIntent().getDoubleExtra("my_lon", noGPScheckValue);
         zoomLevel = getIntent().getIntExtra("zoomLevel",defaultZoomLevel);
+        dragZoomLevel = getIntent().getIntExtra("zoomLevel",defaultZoomLevel);
         at_home = getIntent().getBooleanExtra("at_home", true);
         weather_on = getIntent().getBooleanExtra("weather_on", true);
 
@@ -186,9 +190,9 @@ public class MapsActivity extends FragmentActivity implements GoogleMap.OnCamera
         LatLng position = new LatLng(position_lat, position_lon);
         mMap.addMarker(new MarkerOptions().position(position).title("Marker in position"));
         mMap.moveCamera(CameraUpdateFactory.newLatLng(position));
-        mMap.moveCamera(CameraUpdateFactory.zoomTo(zoomLevel));
+        mMap.moveCamera(CameraUpdateFactory.zoomTo(dragZoomLevel));
         mMap.setMinZoomPreference(2);
-        mMap.setMaxZoomPreference(9);
+        mMap.setMaxZoomPreference(11);
     }
 
     public void click_my_location(View view) {
@@ -328,6 +332,8 @@ public class MapsActivity extends FragmentActivity implements GoogleMap.OnCamera
     @Override
     public void onCameraIdle() {
         LatLng position = mMap.getCameraPosition().target;
+        dragZoomLevel = mMap.getCameraPosition().zoom;
+
         position_lat = position.latitude;
         position_lon = position.longitude;
         mMap.clear(); //Clears marker
