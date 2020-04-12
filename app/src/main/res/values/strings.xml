@@ -5,7 +5,7 @@
     <string name="longitude_text">Longitude:</string>
     <string name="empty_text">---</string>
     <string name="currentHome_text">CURRENT HOME</string>
-    <string name="setNewHome_text">SET NEW HOME</string>
+    <string name="setNewHome_text">\nSET NEW HOME</string>
     <string name="backToMap_text">BACK TO MAP</string>
     <string name="myLocation_text">MY LOCATION</string>
     <string name="home_text">HOME</string>

@@ -11,37 +11,64 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <TextView
-            android:id="@+id/placeName_textView"
+        android:layout_height="wrap_content"
+        android:background="@drawable/layout_border"
+        android:orientation="vertical">
+
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/empty_text"
-            android:textSize="50sp" />
-    </LinearLayout>
+            android:orientation="horizontal"
+            android:paddingLeft="10sp"
+            android:weightSum="100">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:paddingBottom="10sp"
-        android:weightSum="30">
+            <TextView
+                android:id="@+id/placeName_textView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="20"
+                android:text="@string/empty_text"
+                android:textSize="50sp" />
 
-        <TextView
-            android:id="@+id/temperature_textView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="5"
-            android:text="@string/empty_text"
-            android:textSize="30sp" />
+        </LinearLayout>
 
-        <TextView
-            android:id="@+id/weather_textView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="25"
-            android:text="@string/empty_text"
-            android:textSize="30sp" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50sp"
+            android:orientation="horizontal"
+            android:paddingLeft="10sp"
+            android:paddingBottom="5sp"
+            android:weightSum="100">
+
+            <TextView
+                android:id="@+id/temperature_textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="30"
+                android:text="@string/empty_text"
+                android:textSize="30sp" />
+
+            <TextView
+                android:id="@+id/weather_textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="60"
+                android:text="@string/empty_text"
+                android:textSize="30sp" />
+
+            <ImageButton
+                android:id="@+id/info_button"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity=""
+                android:layout_weight="10"
+                android:background="@drawable/button_click"
+                android:onClick="openInfoDialog"
+                android:scaleType="centerInside"
+                android:src="@drawable/info_icon"
+                android:textSize="20sp" />
+
+        </LinearLayout>
     </LinearLayout>
 
     <LinearLayout

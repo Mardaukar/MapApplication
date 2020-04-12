@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:weightSum="100"
     android:orientation="vertical"
     android:paddingLeft="10sp"
     android:paddingTop="10sp"
@@ -14,9 +15,8 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:weightSum="20"
-        android:orientation="vertical"
-        android:paddingBottom="15sp">
+        android:layout_weight="15"
+        android:orientation="vertical">
 
         <TextView
             android:id="@+id/currentHome_textView"
@@ -43,7 +43,7 @@
                     android:id="@+id/currentLat_textView"
                     style="@style/TextStyle"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:text="@string/latitude_text" />
 
                 <TextView
@@ -66,7 +66,7 @@
                     android:id="@+id/currentLon_textView"
                     style="@style/TextStyle"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:text="@string/longitude_text" />
 
                 <TextView
@@ -78,6 +78,11 @@
                     android:text="@string/empty_text" />
             </LinearLayout>
         </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="5sp"
+            android:orientation="horizontal">
+        </LinearLayout>
     </LinearLayout>
 
     <LinearLayout
@@ -86,14 +91,14 @@
         android:layout_weight="45"
         android:weightSum="100"
         android:orientation="vertical"
-        android:paddingBottom="15sp">
+        android:paddingBottom="5sp">
 
         <TextView
             android:id="@+id/setNewHome_textView"
             style="@style/titleTextStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="15"
+            android:layout_weight="20"
             android:paddingBottom="10sp"
             android:text="@string/setNewHome_text"/>
 
@@ -236,13 +241,13 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:weightSum="100"
-            android:layout_weight="25"
+            android:layout_weight="12"
             android:orientation="horizontal">
             <Button
                 android:id="@+id/setNewHome_button"
                 style="@style/TextStyle"
                 android:layout_width="match_parent"
-                android:layout_height="35sp"
+                android:layout_height="match_parent"
                 android:layout_weight="50"
                 android:background="@drawable/button_click"
                 android:onClick="set_new_home"
@@ -251,41 +256,25 @@
                 android:id="@+id/setHomeHere_button"
                 style="@style/TextStyle"
                 android:layout_width="match_parent"
-                android:layout_height="35sp"
+                android:layout_height="match_parent"
                 android:layout_weight="50"
                 android:background="@drawable/button_click"
                 android:onClick="set_home_here"
                 android:text="@string/set_text" />
         </LinearLayout>
-
-
-
-
-        <LinearLayout
-            android:layout_width="wrap_content"
+        <TextView
+            android:id="@+id/extra"
+            style="@style/TextStyle"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:orientation="horizontal">
-
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:orientation="horizontal">
-
-
-        </LinearLayout>
-
-
+            android:layout_weight="8"
+            android:text="" />
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="20"
+        android:layout_weight="33"
         android:weightSum="100"
         android:orientation="vertical"
         android:paddingBottom="10sp">
@@ -360,8 +349,8 @@
         android:id="@+id/goBack_button"
         style="@style/TextStyle"
         android:layout_width="match_parent"
-        android:layout_height="35sp"
-        android:layout_weight="10"
+        android:layout_height="wrap_content"
+        android:layout_weight="7"
         android:background="@drawable/button_click"
         android:onClick="back_to_map"
         android:text="@string/backToMap_text" />

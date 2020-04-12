@@ -113,6 +113,10 @@ public class MapsActivity extends FragmentActivity implements GoogleMap.OnCamera
         updateSelected();
         getMap();
     }
+    public void openInfoDialog(View view){
+        AppInfoDialog appInfoDialog = new AppInfoDialog();
+        appInfoDialog.show(getSupportFragmentManager(), "App-info");
+    }
 
     @Override
     protected void onRestoreInstanceState( Bundle savedInstanceState ) {
